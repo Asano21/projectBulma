@@ -1,0 +1,41 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Add Post {% endblock %}
+
+{% block content %}
+<style>
+    #id_title, #id_imagePost, #id_contentPost{
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        margin-bottom: 8px;
+        border-radius: 30px;
+        box-sizing: border-box;
+        border: 3px solid #ccc;
+        transition:.6s ease;
+        outline: none;
+    }
+    #id_title:focus, #id_imagePost:focus, #id_contentPost:focus {
+        border: 3px solid #555;
+    }
+
+</style>
+    <div class="container">
+        <form method="post" class="">
+            <h1 class="mb-5 mt-5">Edit Post</h1>
+            {% csrf_token %}
+            <label for="id_title">Title:</label>
+            <input value="{{post.title}}" type="text" name="title" maxlength="255" required="" id="id_title">
+            <label for="id_imagePost">Image:</label>
+            {% if post.imagePost%}
+            <input value="{{post.imagePost}}" type="text" name="imagePost" maxlength="500" id="id_imagePost">
+            {% else %}
+            <input value="" type="text" name="imagePost" maxlength="500" id="id_imagePost">
+            {% endif %}
+            <label for="id_contentPost">Content:</label>
+            <textarea name="contentPost" cols="40" rows="10" required="" id="id_contentPost">{{post.contentPost}}</textarea>
+            <button class="button is-info is-rounded">Edit</button>
+            <a href="{% url 'postDetail' pk=post.pk %}" class="button is-info is-rounded">Back</a>
+        </form>
+    </div>
+{% endblock%}

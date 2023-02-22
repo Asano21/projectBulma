@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Add Post {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">
+            <h1 class="mb-5 mt-5">Delete Post "{{post.title}}"?</h1>
+            {% csrf_token %}
+            <button class="button is-danger">Yes</button>
+            <a href="{% url 'postDetail' pk=post.pk %}" class="button is-info">No</a>
+        </form>
+    </div>
+{% endblock%}

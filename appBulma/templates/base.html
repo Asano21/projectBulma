@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{% endblock %}</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="{% static './css/all.css' %}">
+</head>
+<body>
+
+    <nav class="navbar is-info mb-5" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{% url 'homePage' %}">
+                  <h1 class="title ">Alexandra&Temirlan</h1>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+              </div>
+
+              <div id="navbarBasicExample" class="navbar-menu">
+                <!-- <div class="navbar-start">
+
+                </div> -->
+
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <div class="buttons">
+                      <a href="{% url 'allPost' %}" class="button is-rounded is-primary">
+                        <strong>All Posts</strong>
+                      </a>
+                      <a href="{% url 'addPost' %}" class="button is-rounded is-light">
+                        Add Post
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer class="footer is-white">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Anime&K-POP</strong> by <a class="is-primary" target="_blank" href="https://www.instagram.com/_sun4ous/">Alexandra&Temirlan</a>. The source code is licensed
+          <a target="_blank" href="https://youtu.be/GHKc3I7uw80">CPMA</a>. The website content
+          is licensed CPMA 2.0 verison
+        </p>
+      </div>
+    </footer>
+    <script src="{% static './js/script.js' %}"></script>
+</body>
+</html>
